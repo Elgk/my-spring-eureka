@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+//@RequestMapping("/product")
 public class ProductControllerImp implements ProductController{
     private final ProductService productService;
 
@@ -19,7 +19,7 @@ public class ProductControllerImp implements ProductController{
 
 
     @Override
-    public String findAll(Model model) {
+    public String viewFindAll(Model model) {
         model.addAttribute("products", productService.findAll());
         return "product";
     }
@@ -30,7 +30,6 @@ public class ProductControllerImp implements ProductController{
         return "redirect:/product";
     }
 
-    @Override
     public List<ProductDto> findAll() {
         return productService.findAll();
     }

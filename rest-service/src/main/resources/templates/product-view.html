@@ -14,7 +14,6 @@
         <h1>Список товаров</h1>
         <table class="table">
             <tr>
-                <th>ID</th>
                 <th>Наименование</th>
                 <th>Цена</th>
                 <th>Количество</th>
@@ -29,7 +28,7 @@
         </table>
     </div>
 
-    <form action="#" th:action="@{/product}" method="post" th:object="${product}">
+    <form action="#" th:action="@{/get-product}" method="post" th:object="${product}">
 
         <div class="mb-3">
             <label class="form-label">Наименование</label>

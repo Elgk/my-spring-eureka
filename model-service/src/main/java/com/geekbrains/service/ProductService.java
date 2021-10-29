@@ -25,7 +25,7 @@ public class ProductService {
     public List<ProductDto> findAll(){
         return productRepository.findAll().stream()
                 .map(ProductDto::valueOf)
-                .collect(Collectors.toList());
+                .collect(Collectors.toUnmodifiableList());
     }
 
     public Person defindPerson(){

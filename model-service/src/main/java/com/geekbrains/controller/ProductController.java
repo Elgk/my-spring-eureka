@@ -10,11 +10,12 @@ import java.util.List;
 
 public interface ProductController {
     @GetMapping("/product")
-    String findAll(Model model);
+    String viewFindAll(Model model);
 
     @PostMapping("/product")
     String save(@ModelAttribute ProductDto productDto);
 
-    public List<ProductDto> findAll();
+    @GetMapping("/findAll")
+    List<ProductDto> findAll();
 
 }

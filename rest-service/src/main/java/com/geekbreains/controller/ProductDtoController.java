@@ -11,13 +11,13 @@ import java.util.List;
 
 @FeignClient("model-sevice")
 public interface ProductDtoController {
-    @GetMapping("/product")
-    String findAll(Model model);
+  /*  @GetMapping("/product")
+    String findAll(Model model);*/
 
     @PostMapping("/product")
     String save(@ModelAttribute ProductDto productDto);
 
-    @GetMapping()
-    List<ProductDto> findAll();
+//    @PostMapping("/findAll")
+//    List<ProductDto> findAll();
 
 }
