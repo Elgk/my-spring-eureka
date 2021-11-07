@@ -6,7 +6,11 @@ import com.geekbrains.model.Product;
 import com.geekbrains.model.repository.PersonRepository;
 import com.geekbrains.model.repository.ProductRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.config.EnableWebFlux;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -22,19 +26,15 @@ public class ProductService {
         this.personRepository = personRepository;
     }
 
-    public List<ProductDto> findAll(){
-        return productRepository.findAll().stream()
-                .map(ProductDto::valueOf)
-                .collect(Collectors.toUnmodifiableList());
+    public Flux<Product>  findAll(){
+        return productRepository.findAll();
     }
 
-    public Person defindPerson(){
-        return personRepository.findById(UUID.fromString(PERSON_ID)).get();
+    public Mono<Person> defindPerson(){
+        return personRepository.findById(UUID.fromString(PERSON_ID));
     }
 
-    public Product save(ProductDto productDto){
-        Product product = productDto.mapToProduct();
-        product.setCreatedBy(defindPerson());
+    public Mono<Product> save(Product product){
         return productRepository.save(product);
     }
 }

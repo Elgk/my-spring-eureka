@@ -1,43 +1,46 @@
 package com.geekbrains.model;
 
-import javax.persistence.*;
+//import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
-@Table(name = "person")
+
+//@Entity
+@Table
 public class Person {
     @Id
     private UUID id;
 
-    @Column(name = "last_name")
+//    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "first_name")
+//    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "phone")
+ //   @Column(name = "phone")
     private String phone;
 
-    @Column(name = "address")
+ //   @Column(name = "address")
     private String address;
 
-    @Column(name = "balance")
+//    @Column(name = "balance")
     private String balance;
 
-    @Column(name = "role")
+//    @Column(name = "role")
     private String role;
 
-    @Column(name = "email")
+//    @Column(name = "email")
     private String email;
 
-    @Column(name = "created_at")
+//    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "password")
+//    @Column(name = "password")
     private String password;
 
-    @PrePersist
+//    @PrePersist
     public void init() {
         if(this.id == null) {
             this.id = UUID.randomUUID();
